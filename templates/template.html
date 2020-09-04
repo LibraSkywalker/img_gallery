@@ -1,0 +1,24 @@
+<!doctype html>
+<title> Image Gallery </title>
+
+{% for item in data['items'] %}
+    <a href= {{ item }}>
+        <img src= {{ item }} width=200 height="121">
+    </a> 
+{% endfor %}
+
+<br>
+
+{% if data['has_prev'] %}
+        <a href="/?page={{ data['prev'] }}"> prev </a>
+{% else %}
+        <a> prev </a>
+{% endif %}
+
+{% if data['has_next'] %}
+        <a href="/?page={{ data['next'] }}"> next </a>
+{% else %}
+        <a> next </a>
+{% endif %}
+
+{{ data['next'] }} / {{ data['pages'] }} 
